@@ -9,7 +9,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Cita {
+public abstract class Cita {
 
     private int id;
     private LocalDate fecha;

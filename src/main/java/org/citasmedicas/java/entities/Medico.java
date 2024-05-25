@@ -6,38 +6,32 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
-public class Medico {
-    // El modificador de acceso
-    // se pone antes del tipo de dato
-    // del atributo
-    // default
-    //Se recomienda implementar encapsulamiento que todos los atributos de una clase sea PRIVATE
-    private int id;
-    private String nombres;
-    private String apellidos;
-    private Tipodeidentificacion tipodeidentificacion;
-    private int numeroIdentificaicon;
-    private int registroMedico;
-    private Especialidad especialidad;
 
-    // Constructor
-    public Medico(int id, String nombres, String apellidos, Tipodeidentificacion tipodeidentificacion,
-            int numeroIdentificaicon, int registroMedico, Especialidad especialidad) {
-        this.id = id;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
-        this.tipodeidentificacion = tipodeidentificacion;
-        this.numeroIdentificaicon = numeroIdentificaicon;
+
+public class Medico extends Usuario{
+
+    private int registroMedico;
+    private Especialidad especialidad;         
+
+
+    public Medico(int id, 
+    String nombres, 
+    String apellidos, 
+    Tipodeidentificacion tipodeidentificacion,
+    int numeroIdentificaicon, 
+    int registroMedico, 
+    Especialidad especialidad) {
+
+        //super(): llamada al constuctor de la clase padre(superclase)
+        //super(): obligatorio en na clase hija
+        //super():debe e la primera instruccion en el constructor 
+        //super permite acceder todo lo que tenga la clase papa  
+        super(id, nombres, apellidos, tipodeidentificacion, numeroIdentificaicon);
+        //inicializacion de los atributos propios 
+        //de la clase hijo
+        //se hace con this
         this.registroMedico = registroMedico;
         this.especialidad = especialidad;
+        }
 
-    }
-
-    @Override // ToString
-    public String toString() {
-        return "Medico [id=" + id + ", nombres=" + nombres + ", apellidos=" + apellidos + ", tipodeidentificacion="
-                + tipodeidentificacion + ", numeroIdentificaicon=" + numeroIdentificaicon + ", registroMedico="
-                + registroMedico + ", especialidad=" + especialidad + "]";
-    }
 }
